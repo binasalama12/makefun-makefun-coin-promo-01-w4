@@ -111,3 +111,6 @@ console.log('created:   ' + createSignature);
 console.log('story:     Builders and their agents race the make.fun bounty clock;');
 console.log('           the fastest, sharpest build takes the USDC home. BUILD is');
 console.log('           the coin of those racers.');
+
+// revision: wallet4
+console.log('race note: the flag drops at the deadline — builders, check the countdown above and ship.');
