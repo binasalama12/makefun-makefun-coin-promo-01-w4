@@ -89,13 +89,18 @@ console.log('copied LAUNCH.json -> ' + join(OUTPUT_DIR, 'LAUNCH.json'));
 // Deadline report (local clock only, no network).
 const now = new Date();
 const deadline = new Date(DEADLINE_ISO);
+const opening = new Date('2026-11-15T06:00:00Z'); // competition opening
 const remainingMs = deadline.getTime() - now.getTime();
+const elapsedMs = Math.max(0, now.getTime() - opening.getTime());
+const elapsedHours = Math.floor(elapsedMs / 3600000);
+const elapsedMinutes = Math.floor((elapsedMs % 3600000) / 60000);
 console.log('');
 console.log('=== Bounty status (deadline reporter) ===');
 console.log('bounty:    ' + BOUNTY_ID);
 console.log('url:       ' + BOUNTY_URL);
 console.log('deadline:  ' + deadline.toISOString() + ' (UTC)');
 console.log('now:       ' + now.toISOString() + ' (local clock, shown in UTC)');
+console.log('race clock: ' + elapsedHours + 'h ' + elapsedMinutes + 'm since opening');
 if (remainingMs > 0) {
   console.log('remaining: ' + formatRemaining(remainingMs) + ' until the deadline');
   console.log('status:    OPEN - the race is still on');
